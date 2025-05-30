@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý tài khoản</title>
+</head>
+<body>
+    <h2>Danh sách tài khoản</h2>
+    <table border="1">
+        <tr>
+            <th>Market</th>
+            <th>Code</th>
+            <th>Status</th>
+            <th>Channel Name</th>
+            <th>Follow</th>
+            <th>Like</th>
+            <th>View</th>
+            <th>Link</th>
+            <th>User</th>
+            <th>Password</th>
+            <th>Mail</th>
+            <th>Pass Mail</th>
+            <th>Cookies</th>
+            <th>Post Schedule</th>
+            <th>Note</th>
+            <th>Xóa</th>
+        </tr>
+        {% for acc in accounts %}
+        <tr>
+            <td>{{ acc.market }}</td>
+            <td>{{ acc.code }}</td>
+            <td>{{ acc.status }}</td>
+            <td>{{ acc.channel_name }}</td>
+            <td>{{ acc.follow }}</td>
+            <td>{{ acc.like }}</td>
+            <td>{{ acc.view }}</td>
+            <td>{{ acc.link }}</td>
+            <td>{{ acc.user }}</td>
+            <td>{{ acc.password }}</td>
+            <td>{{ acc.mail }}</td>
+            <td>{{ acc.pass_mail }}</td>
+            <td>{{ acc.cookies }}</td>
+            <td>{{ acc.post_schedule }}</td>
+            <td>{{ acc.note }}</td>
+            <td><a href="/delete/{{ acc.id }}">Xóa</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Thêm tài khoản mới</h3>
+    <form method="post" action="/add">
+        <input name="market" placeholder="Market">
+        <input name="code" placeholder="Code">
+        <input name="status" placeholder="Status">
+        <input name="channel_name" placeholder="Channel Name">
+        <input name="follow" placeholder="Follow">
+        <input name="like" placeholder="Like">
+        <input name="view" placeholder="View">
+        <input name="link" placeholder="Link">
+        <input name="user" placeholder="User">
+        <input name="password" placeholder="Password">
+        <input name="mail" placeholder="Mail">
+        <input name="pass_mail" placeholder="Pass Mail">
+        <input name="cookies" placeholder="Cookies">
+        <input name="post_schedule" placeholder="Post Schedule">
+        <input name="note" placeholder="Note">
+        <button type="submit">Thêm</button>
+    </form>
+    <br>
+    <a href="/export">Tải xuống Excel</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Import Tài khoản TikTok</title>
+</head>
+<body>
+    <h2>Import Tài khoản TikTok hàng loạt</h2>
+    <form method="post" action="/import">
+        <textarea name="bulkdata" rows="12" cols="110" placeholder="tiktok_id|password|email|email_password|cookie"></textarea>
+        <br>
+        <button type="submit">Import</button>
+        <a href="/">Quay lại trang chủ</a>
+    </form>
+    <p>
+        <b>Lưu ý:</b> Mỗi dòng một tài khoản, các trường cách nhau bằng dấu <b>|</b><br>
+        Ví dụ: <br>
+        <code>user4761805328163|MyPass123|abc@gmail.com|EmailPass321|cookie_string_here</code>
+    </p>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đã import xong</title>
+</head>
+<body>
+    <h2>Import thành công {{ count }} tài khoản!</h2>
+    <a href="/">Quay lại trang chủ</a>
+    <a href="/import">Import tiếp</a>
+</body>
+</html>
+<a href="/import">Import tài khoản hàng loạt</a>

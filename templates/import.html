@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Import Tài khoản TikTok</title>
+</head>
+<body>
+    <h2>Import Tài khoản TikTok hàng loạt</h2>
+    <form method="post" action="/import">
+        <textarea name="bulkdata" rows="12" cols="110" placeholder="tiktok_id|password|email|email_password|cookie"></textarea>
+        <br>
+        <button type="submit">Import</button>
+        <a href="/">Quay lại trang chủ</a>
+    </form>
+    <p>
+        <b>Lưu ý:</b> Mỗi dòng một tài khoản, các trường cách nhau bằng dấu <b>|</b><br>
+        Ví dụ: <br>
+        <code>user4761805328163|MyPass123|abc@gmail.com|EmailPass321|cookie_string_here</code>
+    </p>
+</body>
+</html>
