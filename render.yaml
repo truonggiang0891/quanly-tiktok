@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: quanly-tiktok
+    env: python
+    buildCommand: ""
+    startCommand: python app.py
